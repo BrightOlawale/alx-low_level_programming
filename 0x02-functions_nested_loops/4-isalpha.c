@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 /**
 * _isalpha - checks if letter is lowercase
 * @c: converts to ascii
@@ -14,7 +15,7 @@ int _isalpha(int c)
 	}
 	else if
 	{
-	if (c >= 'A' && c<= 'Z')
+	if (c >= 'A' && c <= 'Z')
 		return (1);
 	}
 	else
