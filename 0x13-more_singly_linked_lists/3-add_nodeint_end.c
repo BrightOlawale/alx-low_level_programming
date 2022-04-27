@@ -16,13 +16,16 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	temp = *head;
 	if (head == NULL)
 		return (NULL);
+
 	nextnode = newnode(n);
-	if (nextnode == NULL);
+	if (nextnode == NULL)
 		return (NULL);
+
 	if (*head == NULL)
+	{
 		*head = nextnode;
 		return (*head);
-
+	}
 	while (temp->next != NULL)
 	{
 		temp = temp->next;
@@ -30,6 +33,12 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	temp->next = nextnode;
 	return (nextnode);
 }
+
+/**
+ * newnode - create a node
+ * @n: element to be inserted
+ * Return: pointer to the new node
+ */
 
 listint_t *newnode(const int n)
 {
