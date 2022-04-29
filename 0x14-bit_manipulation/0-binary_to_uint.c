@@ -10,18 +10,25 @@ char *reverse(const char *b);
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int sum = 0, pow = 0, a;
+	unsigned int sum = 0, pow = 0, a = 0;
 
+	len = len(b);
 	rev = reverse(b);
-	for (a = 0; rev[a] != '\0'; a++)
+	if (b = NULL)
+		return (0);
+	if (len == 1 && (rev[a] == '0' || rev[a] == '1')
+		return (rev[a] - 48);
+
+	while (rev[a] != '\0')
 	{
 		if (rev[a] == "1" || rev[a] == "0")
 		{
-			sum += ((rev[a] + 48) * (2, pow);
+			sum += ((rev[a] - 48) * (2, pow);
 		}
 		else
 			return (0);
 		pow++;
+		a++;
 	}
 	return (sum);
 }
