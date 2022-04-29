@@ -10,7 +10,7 @@ char *reverse(const char *b);
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int sum = 0, pow = 0, a = 0;
+	unsigned int sum = 0, pow = 1, a = 0;
 
 	len = len(b);
 	rev = reverse(b);
@@ -23,11 +23,11 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if (rev[a] == "1" || rev[a] == "0")
 		{
-			sum += ((rev[a] - 48) * (2, pow);
+			sum += ((rev[a] - 48) * pow);
 		}
 		else
 			return (0);
-		pow++;
+		pow *= 2;
 		a++;
 	}
 	return (sum);
