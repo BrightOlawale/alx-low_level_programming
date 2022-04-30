@@ -12,8 +12,26 @@ unsigned int binary_to_uint(const char *b)
 {
 	unsigned int sum = 0, pow = 1, a = 0;
 
-	len = len(b);
-	rev = reverse(b);
+	int i = 0;
+
+	while (b[i] != '\0')
+	{
+		i++;
+	}
+
+	len = i;
+
+	char *rev;
+	int n = 0;
+
+	rev = malloc(len + 1);
+	while (b[n] != '\0')
+	{
+		rev[n] = b[len];
+		n++;
+		len--;
+	}
+
 	if (b = NULL)
 		return (0);
 	if (len == 1 && (rev[a] == '0' || rev[a] == '1')
@@ -23,7 +41,7 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if (rev[a] == "1" || rev[a] == "0")
 		{
-			sum += ((rev[a] - 48) * pow);
+			sum = sum + ((rev[a] - 48) * pow);
 		}
 		else
 			return (0);
@@ -33,30 +51,3 @@ unsigned int binary_to_uint(const char *b)
 	return (sum);
 }
 
-
-unsigned int len(const char *b)
-{
-	int i = 0;
-
-	while (b[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-char *reverse(const char *b)
-{
-	char *rev;
-	int i, n = 0;
-
-	i = len(b);
-	rev = malloc(i + 1);
-	while (b[n] != '\0')
-	{
-		rev[n] = b[i];
-		n++;
-		i--;
-	}
-	return (rev);
-}
