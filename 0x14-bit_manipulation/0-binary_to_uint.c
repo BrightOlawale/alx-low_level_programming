@@ -8,43 +8,27 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int sum = 0, pow = 1, a = 0;
+	unsigned int sum = 0, power = 1, a = 0, c;
 
-	int i = 0, len;
+	int i = 0;
 
-	while (b[i] != '\0')
-	{
-		i++;
-	}
-
-	len = i;
-
-	char *rev;
-	int n = 0;
-
-	rev = malloc(len + 1);
-	while (b[n] != '\0')
-	{
-		rev[n] = b[len];
-		n++;
-		len--;
-	}
-
-	if (b = NULL)
+	if (b == NULL)
 		return (0);
-	if (len == 1 && (rev[a] == '0' || rev[a] == '1'))
-		return (rev[a] - 48);
+	for (;b[i] != '\0'; i++)
+		;
+	if (i == 1 && (b[0] == '0' || b[0] == '1'))
+		return (b[0] - 48);
 
-	while (rev[a] != '\0')
+	while (b[a] != '\0')
 	{
-		if (rev[a] == "1" || rev[a] == "0")
-		{
-			sum = sum + ((rev[a] - 48) * pow);
-		}
-		else
+		if (b[a] != '1' && b[a] != '0')
 			return (0);
-		pow *= 2;
+		for (c = (i - 1); c > 0; c--)
+			power = power *2;
+		sum = sum + ((b[a] - 48) * power);
 		a++;
+		i--;
+		power = 1;
 	}
 	return (sum);
 }
