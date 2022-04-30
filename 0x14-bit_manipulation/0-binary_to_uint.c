@@ -33,6 +33,7 @@ unsigned int binary_to_uint(const char *b)
 	return (sum);
 }
 
+
 unsigned int len(const char *b)
 {
 	int i = 0;
@@ -50,7 +51,7 @@ char *reverse(const char *b)
 	int i, n = 0;
 
 	i = len(b);
-	rev = malloc(len + 1);
+	rev = malloc(i + 1);
 	while (b[n] != '\0')
 	{
 		rev[n] = b[i];
