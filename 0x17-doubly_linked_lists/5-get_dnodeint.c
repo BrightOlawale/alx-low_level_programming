@@ -6,7 +6,7 @@
  * @index: Node index to return.
  * Return: If found the node at the index.
  */
-dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
+dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
 	int idx = 0;
 
@@ -14,7 +14,7 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
 		return (NULL);
 	while (idx != index)
 	{
-		head = head->next
+		head = head->next;
 		idx++;
 	}
 	return (head);
