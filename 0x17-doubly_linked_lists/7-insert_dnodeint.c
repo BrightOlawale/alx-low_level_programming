@@ -7,54 +7,43 @@
  * @n: Number in the node.
  * Return: The address of the new node, or NULL if it failed
  */
-
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	unsigned int index = 0;
-	dlistint_t *newnode;
+	dlistint_t *tmp;
+	dlistint_t *new_node;
+	unsigned int counter;
 
 	if (h == NULL || (*h == NULL && idx != 0))
 		return (NULL);
-	newnode = do_node(n);
-	if (!newnode)
+	new_node = create_node(n);
+	if (new_node == NULL)
 		return (NULL);
-	if (*h == NULL)
+	tmp = *h;
+	if (idx == 0)
 	{
-		*h = newnode;
-		return (newnode);
-	}
-	while (index < (idx + 1))
-	{
-		if (index == idx)
+		if (*h == NULL)
+			*h = new_node;
+		else
 		{
-			newnode->prev = *h;
-			newnode->next = (*h)->next;
+			new_node->next = tmp;
+			tmp->prev = new_node;
+			*h = new_node;
 		}
-		index++;
+		return (new_node);
 	}
-	if (idx > index)
-		return (NULL);
-	return (newnode);
-}
-
-
-/**
- * do_node - Creates a node.
- * @n: Integer value to add to a linked list node.
- * Return: Upon sucess pointer to a dlistint_t node. Otherwise NULL
- */
-
-dlistint_t *do_node(const int n)
-{
-	dlistint_t *newnode;
-
-	newnode = malloc(sizeof(dlistint_t));
-	if (!newnode)
+	for (counter = 0; tmp->next != NULL || counter + 1 == idx; counter++)
 	{
-		return (NULL);
+		if (counter + 1 == idx)
+		{
+			if (tmp->next != NULL)
+				tmp->next->prev = new_node;
+			new_node->next = tmp->next;
+			tmp->next = new_node;
+			new_node->prev = tmp;
+			return (new_node);
+		}
+		tmp = tmp->next;
 	}
-	newnode->prev = NULL;
-	newnode->next = NULL;
-	newnode->n = n;
-	return (newnode);
+	free(new_node);
+	return (NULL);
 }
