@@ -15,14 +15,9 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	{
 		return (NULL);
 	}
-	newnode = malloc(sizeof(dlistint_t));
-	if (newnode == NULL)
-	{
+	newnode = make_node(n);
+	if (!newnode)
 		return (NULL);
-	}
-	newnode->prev = NULL;
-	newnode->next = NULL;
-	newnode->n = n;
 	if (*head == NULL)
 		*head = newnode;
 		return (newnode);
@@ -30,5 +25,26 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	newnode->next = *head;
 	*head = newnode;
 
+	return (newnode);
+}
+
+/**
+ * make_node - Creates a node.
+ * @n: Integer value to add to a linked list node.
+ * Return: Upon sucess pointer to a dlistint_t node. Otherwise NULL
+ */
+
+dlistint_t *make_node(const int n)
+{
+	dlistint_t *newnode;
+
+	newnode = malloc(sizeof(dlistint_t));
+	if (!newnode)
+	{
+		return (NULL);
+	}
+	newnode->prev = NULL;
+	newnode->next = NULL;
+	newnode->n = n;
 	return (newnode);
 }
