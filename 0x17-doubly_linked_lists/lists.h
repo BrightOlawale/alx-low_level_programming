@@ -30,6 +30,7 @@ dlistint_t *make_nodee(const int n);
 void free_dlistint(dlistint_t *head);
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
 int sum_dlistint(dlistint_t *head);
-
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n);
+dlistint_t *do_node(const int n);
 
 #endif /*_LIST_H*/
