@@ -45,8 +45,8 @@ dlistint_t *make_nodee(const int n)
 {
 	dlistint_t *newnode;
 
-	new_node = malloc(sizeof(dlistint_t));
-	if (!newnod)
+	newnode = malloc(sizeof(dlistint_t));
+	if (!newnode)
 		return (NULL);
 	newnode->prev = NULL;
 	newnode->next = NULL;
