@@ -11,7 +11,9 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	dlistint_t *temp = *head;
 
 	if (head == NULL)
+	{
 		return (NULL);
+	}
 	newnode = make_node(n);
 	if (!newnode)
 	{
